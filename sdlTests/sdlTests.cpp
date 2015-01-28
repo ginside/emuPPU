@@ -185,10 +185,10 @@ void drawTile() {
                           };
   const unsigned int x_origin = 20;
   const unsigned int y_origin = 20;
-  for (int line = 0 ; line <= 8 ; line++) {
+  for (int line = 0 ; line < 8 ; line++) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION,
                     SDL_LOG_PRIORITY_INFO,
-                    "Drawing Line %d (y = %d) \n",line, y_origin+line);
+                    "Drawing Line %d (y = %d) \n",line, y_origin + line);
 
     for (int bitMask = 1; bitMask <= 0x80 ; bitMask <<= 1) {
 
@@ -196,7 +196,7 @@ void drawTile() {
       unsigned int x_offset = 0;
       unsigned int bitIndex = 0;
       unsigned int bitCounter = bitMask;
-      
+
       while(bitCounter != 0) {
         bitCounter >>= 1;
         x_offset +=1;
@@ -214,7 +214,7 @@ void drawTile() {
       SDL_SetRenderDrawColor( gRenderer,  gNesColorPalette[palette[colorIndex]][0],
                                           gNesColorPalette[palette[colorIndex]][1],
                                           gNesColorPalette[palette[colorIndex]][2],
-                                          0xFF );
+                                          gNesColorPalette[palette[colorIndex]][3]);
       SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION,
                      SDL_LOG_PRIORITY_INFO,
                      "Drawn Pixel at x_offset= %d, color: %d \n",
